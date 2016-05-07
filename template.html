@@ -1,0 +1,141 @@
+<?php
+session_start();
+require_once("func/functions.php");
+require_once("func/display.php");
+
+
+?>
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Yathzee</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <h1>Yahtzee</h1>
+        <div class="tools clear">
+            <form method="POST" action="#"><input type="submit" name="reset" value="reset"></form>
+        </div>
+
+        <form method="POST" action="#">
+            <div class="dices">
+                    <div class="dice">
+                        <div class="dice-value value-<?php echo $_SESSION["dices"][0] ?>">
+                            <span class="point top left"></span>
+                            <span class="point top middle"></span>
+                            <span class="point top right"></span>
+                            <span class="point center"></span>
+                            <span class="point bottom left"></span>
+                            <span class="point bottom middle"></span>
+                            <span class="point bottom right"></span>
+                        </div>
+                        <input name="change[]" id="dice-1" type="checkbox" value="1" />
+                        <label for="dice-1">Relancer</label>
+                    </div>
+
+                    <div class="dice">
+                        <div class="dice-value value-<?php echo $_SESSION["dices"][1] ?> ?>">
+                            <span class="point top left"></span>
+                            <span class="point top middle"></span>
+                            <span class="point top right"></span>
+                            <span class="point center"></span>
+                            <span class="point bottom left"></span>
+                            <span class="point bottom middle"></span>
+                            <span class="point bottom right"></span>
+                        </div>
+                        <input name="change[]" id="dice-2" type="checkbox" value="2" />
+                        <label for="dice-2">Relancer</label>
+                    </div>
+
+                    <div class="dice">
+                        <div class="dice-value value-<?php echo $_SESSION["dices"][2] ?>">
+                            <span class="point top left"></span>
+                            <span class="point top middle"></span>
+                            <span class="point top right"></span>
+                            <span class="point center"></span>
+                            <span class="point bottom left"></span>
+                            <span class="point bottom middle"></span>
+                            <span class="point bottom right"></span>
+                        </div>
+                        <input name="change[]" id="dice-3" type="checkbox" value="3" />
+                        <label for="dice-3">Relancer</label>
+                    </div>
+
+                    <div class="dice">
+                        <div class="dice-value value-<?php echo $_SESSION["dices"][3] ?>">
+                            <span class="point top left"></span>
+                            <span class="point top middle"></span>
+                            <span class="point top right"></span>
+                            <span class="point center"></span>
+                            <span class="point bottom left"></span>
+                            <span class="point bottom middle"></span>
+                            <span class="point bottom right"></span>
+                        </div>
+                        <input name="change[]" id="dice-4" type="checkbox" value="4" />
+                        <label for="dice-4">Relancer</label>
+                    </div>
+
+                    <div class="dice">
+                        <div class="dice-value value-<?php echo $_SESSION["dices"][4] ?>">
+                            <span class="point top left"></span>
+                            <span class="point top middle"></span>
+                            <span class="point top right"></span>
+                            <span class="point center"></span>
+                            <span class="point bottom left"></span>
+                            <span class="point bottom middle"></span>
+                            <span class="point bottom right"></span>
+                        </div>
+                        <input name="change[]" id="dice-5" type="checkbox" value="5" />
+                        <label for="dice-5">Relancer</label>
+                    </div>
+                <div class="tools clear">
+                    <p>lancé n° : <?php echo $_SESSION["nbLaunch"]; ?></p>
+                    <input type="submit" name="roll" value="Lancer les dés" <?php if($_SESSION["nbLaunch"] > 2) echo "disabled"; ?>>
+                </div>
+            </div>
+        </form>
+
+        <form method="POST">
+            <table>
+                <tbody>
+                    <tr>
+                        <th><label for="categ-1">1</label></th>
+                        <th><label for="categ-2">2</label></th>
+                        <th><label for="categ-3">3</label></th>
+                        <th><label for="categ-4">4</label></th>
+                        <th><label for="categ-5">5</label></th>
+                        <th><label for="categ-6">6</label></th>
+                        <th><label for="categ-brelan">brelan</label></th>
+                        <th><label for="categ-petite-suite">petite suite</label></th>
+                        <th><label for="categ-grande-suite">grande suite</label></th>
+                        <th><label for="categ-full">full</label></th>
+                        <th><label for="categ-carre">carre</label></th>
+                        <th><label for="categ-yahtzee">yahtzee</label></th>
+                        <th><label for="categ-chance">chance</label></th>
+                        <th>total</th>
+                    </tr>
+                    <tr>
+                        <td><input id="categ-1" type="radio" name="categ" value="1" <?php if($_SESSION["choices"][0] == 0) echo "disabled"; ?>></td>
+                        <td><input id="categ-2" type="radio" name="categ" value="2" <?php if($_SESSION["choices"][1] == 0) echo "disabled"; ?>></td>
+                        <td><input id="categ-3" type="radio" name="categ" value="3" <?php if($_SESSION["choices"][2] == 0) echo "disabled"; ?>></td>
+                        <td><input id="categ-4" type="radio" name="categ" value="4" <?php if($_SESSION["choices"][3] == 0) echo "disabled"; ?>></td>
+                        <td><input id="categ-5" type="radio" name="categ" value="5" <?php if($_SESSION["choices"][4] == 0) echo "disabled"; ?>></td>
+                        <td><input id="categ-6" type="radio" name="categ" value="6" <?php if($_SESSION["choices"][5] == 0) echo "disabled"; ?>></td>
+                        <td><input id="categ-brelan" type="radio" name="categ" value="brelan" <?php if($_SESSION["choices"][6] == 0) echo "disabled"; ?>></td>
+                        <td><input id="categ-petite-suite" type="radio" name="categ" value="petite suite" <?php if($_SESSION["choices"][7] == 0) echo "disabled"; ?>></td>
+                        <td><input id="categ-grande-suite" type="radio" name="categ" value="grande suite" <?php if($_SESSION["choices"][8] == 0) echo "disabled"; ?>></td>
+                        <td><input id="categ-full" type="radio" name="categ" value="full" <?php if($_SESSION["choices"][9] == 0) echo "disabled"; ?>></td>
+                        <td><input id="categ-carre" type="radio" name="categ" value="carre" <?php if($_SESSION["choices"][10] == 0) echo "disabled"; ?>></td>
+                        <td><input id="categ-yahtzee" type="radio" name="categ" value="yahtzee" <?php if($_SESSION["choices"][11] == 0) echo "disabled"; ?>></td>
+                        <td><input id="categ-chance" type="radio" name="categ" value="chance" ></td>
+                        <td><?php echo $_SESSION["score"] ?></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="tools clear">
+                <input type="submit" value="Choisir" <?php if($_SESSION["choosen"]) echo "disabled" ?>>
+            </div>
+        </form>
+    </body>
+</html>

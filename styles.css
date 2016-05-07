@@ -1,0 +1,101 @@
+.clear {
+    clear:both;
+}
+
+h1 {
+    text-align: center
+}
+
+.dices, .tools {
+    width: 560px;
+    margin: auto;
+}
+
+.dice {
+    float: left;
+    margin-left: 10px;
+}
+
+.dice-value {
+    border: 1px solid;
+    width: 100px;
+    height: 100px;
+    position: relative;
+}
+
+.dice-value .point {
+    position: absolute;
+    border-radius: 50%;
+    display: none;
+    width: 10px;
+    height: 10px; 
+    background-color: black;
+}
+
+.dice-value .point.top {
+    margin-top: 20px;
+}
+
+.dice-value .point.center {
+    margin: 45px;
+}
+
+.dice-value .point.bottom {
+    margin-top: 70px;
+}
+
+.dice-value .point.left {
+    margin-left: 20px;
+}
+
+.dice-value .point.middle {
+    margin-left: 45px;
+}
+
+.dice-value .point.right {
+    margin-left: 70px;
+}
+
+
+.dice-value.value-1 .center {
+    display: block;
+}
+
+.dice-value.value-2 .top.left, .dice-value.value-2 .bottom.right {
+    display: block;
+}
+
+.dice-value.value-3 .top.left, .dice-value.value-3 .center, .dice-value.value-3 .bottom.right {
+    display: block;
+}
+
+.dice-value.value-4 .top.left, .dice-value.value-4 .top.right, .dice-value.value-4 .bottom.left, .dice-value.value-4 .bottom.right {
+    display: block;
+}
+
+.dice-value.value-5 .top.left, .dice-value.value-5 .top.right, .dice-value.value-5 .bottom.left, .dice-value.value-5 .bottom.right, .dice-value.value-5 .center {
+    display: block;
+}
+
+.dice-value.value-6 .top, .dice-value.value-6 .bottom {
+    display: block;
+}
+
+
+.tools {
+    text-align: center;
+    padding: 10px 0 40px 0;
+}
+
+table {
+    margin:auto;
+}
+
+table td, table th {
+    padding: 0;
+    margin: 0;
+    width: 60px;
+    height: 60px;
+    border: 1px solid;
+    text-align: center;
+}
